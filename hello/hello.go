@@ -13,8 +13,9 @@ func main() {
 	// the time, source file, and line number.
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
+	names := []string{"Tim", "Peggy", "Ziyo"}
 
-	message, err := greetings.Hello("Tim")
+	message, err := greetings.Hellos(names)
 	if err != nil {
 		// Fatal will stop the program immediately
 		log.Fatal(err)

@@ -21,6 +21,22 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+func Hellos(names []string) (map[string]string, error) {
+	// initialize a map
+	messages := make(map[string]string)
+
+	// use "for range" loop
+	// _ is Go blank identifier. It should be the index of the name but we do not use it here. Hence, we put it as blank identifier.
+	for _, name := range names {
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = message
+	}
+	return messages, nil
+}
+
 // Go executes init functions automatically at program startup, after global variables have been initialized.
 func init() {
 	rand.Seed(time.Now().UnixNano())
